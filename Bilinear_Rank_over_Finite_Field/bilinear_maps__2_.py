@@ -848,7 +848,9 @@ def main():
     print("\nIf you want to know if there is a rank equal to some value k, enter Y")
     input_text = input()
     if input_text == "Y":
-        k = int(input("Enter the value of k: "))
+      k=1
+      while k!=0:
+        k = int(input("Enter the value of k, Enter 0 to stop: "))
         print(f"\nExpanding the subspace to rank {k}")
         expanded_subspace = expand_subspace(pseudo_solution3, G, 1, k, p)
         if expanded_subspace is None:
@@ -859,7 +861,7 @@ def main():
                 print(matrix)
                 print("L,R",reverse_custom_tensor_product(expanded_subspace))
                 print("P",solve_tensor_equation(bilinear,np.array(expanded_subspace)))
-
+    
 '''Enter the value for Fp field: 3
 Enter Y if you want it modular an irreducible polynomialno
 Enter T if you want to enter the bilinear as a tensor T
