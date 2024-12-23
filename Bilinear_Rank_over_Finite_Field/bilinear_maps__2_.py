@@ -240,12 +240,12 @@ def has_one_rank_basis(T, G, p):
     for i in G:
         if is_linearly_independent(s, i) and not is_linearly_independent(T, i):
             s.append(i)
-    return len(s)
+    return s
 
 def expand_subspace(W, G, j, k, p):
     """
+    An imlpementation of a prexisting exact algorithm
     Expands the subspace W using matrices from G to achieve a subspace of rank k.
-
     Args:
     - W (list of np.ndarray): The current subspace.
     - G (list of np.ndarray): The list of matrices to use for expansion.
@@ -257,23 +257,24 @@ def expand_subspace(W, G, j, k, p):
     - list of np.ndarray or None: The expanded subspace if successful, otherwise None.
     """
     HSK = has_one_rank_basis(W, G, p)
-    if HSK == k and len(W) == k:
+    if len(HSK) == k and len(W) == k:
         return W
     if len(W) < k:
         for g in range(j, len(G)):
             if is_linearly_independent(W, G[g], p):
                 v = expand_subspace(W + [G[g]], G, g + 1, k, p)
                 if v is not None:
-                    return v
+                    return  has_one_rank_basis(v, G, p)
     return None
 
-def iteration_search(base,T,G):
+def iteration_search(base,G):
   #given a tensor T will try to find a base with k multiplication that spans T
-  global k
-  a,b=Number_of_multiplications(base),Number_of_multiplications(base)+Number_of_multiplications(T)
+  a,b=len(base),Number_of_multiplications(base)
   for k in range(a,b+1):
-    if expand_subspace(base,G,T) is not None:
-      return expand_subspace(base,G,T)
+    sol=expand_subspace(base,G,0,k,p)
+    if sol is not None:
+      return sol
+    print(f"No rank {k} basis found")
   return None
 
 def binary_Search_auto(base, T,G):
@@ -850,18 +851,22 @@ def main():
     if input_text == "Y":
       k=1
       while k!=0:
-        k = int(input("Enter the value of k, Enter 0 to stop: "))
-        print(f"\nExpanding the subspace to rank {k}")
-        expanded_subspace = expand_subspace(pseudo_solution3, G, 1, k, p)
+        k = int(input("Enter the value of k, Enter 0 to stop,Enter -1 for automatic: "))
+        if k==-1:
+          expanded_subspace=iteration_search(pseudo_solution3,G)
+          k=0
+        else:
+          print(f"\nExpanding the subspace to rank {k}")
+          expanded_subspace = expand_subspace(pseudo_solution3, G, 0, k, p)
         if expanded_subspace is None:
             print(f"No rank {k} basis found")
         else:
-            print(f"Rank {k} basis found:")
+            print(f"Rank {len(expanded_subspace)} basis found:")
             for matrix in expanded_subspace:
                 print(matrix)
                 print("L,R",reverse_custom_tensor_product(expanded_subspace))
                 print("P",solve_tensor_equation(bilinear,np.array(expanded_subspace)))
-    
+
 '''Enter the value for Fp field: 3
 Enter Y if you want it modular an irreducible polynomialno
 Enter T if you want to enter the bilinear as a tensor T
