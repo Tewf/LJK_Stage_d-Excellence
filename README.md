@@ -1,12 +1,33 @@
-# Internship Project: Alternative Bases for Bilinear Tensor Decomposition
+# Excellence Internship – Decomposition of Bilinear Tensors
 
-This GitHub repository contains the code developed during the internship titled:
-
-**_Bases alternatives pour la décomposition de tenseurs bilinéaires associés au produit de matrices (H/F)_**  
-Conducted from **May 21, 2024 to July 15, 2024**.
-
+This repository contains the work completed during an **Excellence Internship** at Université Grenoble Alpes, carried out within the **Jean Kuntzmann Laboratory (LJK)**.
 🔗 Original project repository on GitLab:  
 [https://gricad-gitlab.univ-grenoble-alpes.fr/hamlilm/AltBase](https://gricad-gitlab.univ-grenoble-alpes.fr/hamlilm/AltBase)
+📅 **Internship duration**: May 21 – July 15, 2024 (40 days)  
+👤 **Intern**: Mohamed Ali HAMLIL  
+🧪 **Supervisor**: Jean-Guillaume Dumas  
+🏛️ **Laboratory**: LJK – Université Grenoble Alpes
+
+## 🎯 Project Topic
+
+**Decomposition of Bilinear Tensors**  
+The main objective was to study and implement techniques for generating alternative bases using sparse decompositions for matrix multiplication, as well as minimizing the rank of bilinear tensors through specific automorphisms, with applications to polynomial multiplication.
+
+## 🔍 Main Tasks
+
+- Literature review on tensor decomposition techniques.
+- Implementation of algorithms in Python and Julia for alternative basis generation.
+- Study and minimization of bilinear tensor rank under structural constraints (automorphisms).
+- Application of developed methods to matrix and polynomial multiplication.
+
+## 🧠 Skills Developed
+
+- Tensor rank and decomposition
+- Linear, bilinear, and polynomial algebra
+- Efficient algorithms & fast arithmetic
+- Complexity theory
+- Development in Python and Julia
+- Scientific writing and presentation
 
 ## 📁 Project Structure
 
