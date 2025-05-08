@@ -2,7 +2,8 @@
 
 This repository contains the work completed during an **Excellence Internship** at Université Grenoble Alpes, carried out within the **Jean Kuntzmann Laboratory (LJK)**.
 🔗 Original project repository on GitLab:  
-[https://gricad-gitlab.univ-grenoble-alpes.fr/hamlilm/AltBase](https://gricad-gitlab.univ-grenoble-alpes.fr/hamlilm/AltBase)
+[https://gricad-gitlab.univ-grenoble-alpes.fr/hamlilm/AltBase](https://gricad-gitlab.univ-grenoble-alpes.fr/hamlilm/AltBase)  
+
 📅 **Internship duration**: May 21 – July 15, 2024 (40 days)  
 👤 **Intern**: Mohamed Ali HAMLIL  
 🧪 **Supervisor**: Jean-Guillaume Dumas  
